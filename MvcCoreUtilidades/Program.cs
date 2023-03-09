@@ -4,7 +4,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddMemoryCache();
-
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddResponseCaching();
 builder.Services.AddSingleton<HelperPathProvider>();
 builder.Services.AddSingleton<HelperMail>();
 builder.Services.AddTransient<HelperUploadFiles>();
@@ -27,6 +28,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseResponseCaching();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

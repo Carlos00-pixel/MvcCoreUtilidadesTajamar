@@ -51,6 +51,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" 
+                            asp-controller="Coches" 
+                            asp-action="Index">
+                                Partial Views Ajax
+                            </a>
+                        </li>
+                        @await Component.InvokeAsync("MenuCoches")
+                        <partial name="_MenuUsuario" />
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
